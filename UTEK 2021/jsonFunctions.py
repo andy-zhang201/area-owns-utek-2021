@@ -21,3 +21,13 @@ def returnAccessibleStations(listOfStations):
             accessibleStations.append(station["Name"])
     
     return accessibleStations
+
+def extractinput(inputFile:str):
+    fileRead = open(inputFile)
+    startPosList = []
+    endPosList = []
+    for line in fileRead.readlines():
+        stations = line.split(",")
+        startPosList.append(stations[0])
+        endPosList.append(stations[1][:-1])
+    return startPosList, endPosList

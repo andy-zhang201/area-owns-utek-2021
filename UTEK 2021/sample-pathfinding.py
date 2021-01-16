@@ -12,6 +12,7 @@ def bfs(graph,start):
                 push the neighbour onto the queue
                 mark neighbour not visited
 
+#TODO: Simplify JSON graph
 
 def Dijkstra(Graph, source):
     #initialize
