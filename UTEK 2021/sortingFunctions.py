@@ -10,7 +10,7 @@ def mergesort(arra):
         new_arra = []
 
         while l < len(LHS) and r < len(RHS):
-            if LHS[l] < RHS[r]:
+            if LHS[l][1] < RHS[r][1]:
                 new_arra.append(LHS[l])
                 l+=1
             else:
@@ -29,5 +29,5 @@ def mergesort(arra):
     return new_arra
 
 
-l = [2,4,6,8,1,3]
+l = [('Path 1', 0.85), ('Path 2', 1.1764705882352942), ('Path 3', 0.7619047619047619)]
 print(mergesort(l))

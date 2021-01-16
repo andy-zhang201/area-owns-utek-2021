@@ -11,8 +11,8 @@ for path in list_paths:
     for node in path["Nodes"]:
         if node["Accessible"]:
             accessible+=1
-    lst_out.append(tuple(path["PathName"], accessible/(len(path["Nodes"]))
 
-print(type(lst_out))
+    lst_out.append(tuple((path["PathName"], accessible/(len(path["Nodes"])-accessible))))
 
+print(lst_out)
 
