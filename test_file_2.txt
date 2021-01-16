@@ -1,3 +1,0 @@
-This is the second test to check if the push request works 
-this is to test changes
-this is to test changes 
