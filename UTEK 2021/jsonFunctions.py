@@ -15,7 +15,11 @@ def extractJson(jsonFile:str,objectName:str):
 
 def returnAccessibleStations(listOfStations):
     """
-    Returns a list of station NAMES which are accessible
+    Inputs:
+        listOfStations: a list of station objects (dictionaries)
+    
+    returns:
+        List of names of accessible stations
     """
     accessibleStations=[]
     for station in listOfStations: 
@@ -25,6 +29,16 @@ def returnAccessibleStations(listOfStations):
     return accessibleStations
 
 def extractinput(inputFile:str):
+    '''
+    Reads lines of 2 inputs and 
+
+    inputs: 
+        inputFile: name of input file ("UTEK 2021\\2.in")
+
+    Returns:
+        two lists, one of starting Stations, one of ending Stations 
+
+    '''
     fileRead = open(inputFile)
     startPosList = []
     endPosList = []
@@ -32,4 +46,5 @@ def extractinput(inputFile:str):
         stations = line.split(",")
         startPosList.append(stations[0])
         endPosList.append(stations[1][:-1])
+        
     return startPosList, endPosList
