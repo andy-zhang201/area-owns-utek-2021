@@ -35,10 +35,4 @@ def mergesort(arra):
         new_arra = arra[:]
 
     return new_arra
-<<<<<<< HEAD
 
-
-#l = [('Path 1', 0.85), ('Path 2', 1.1764705882352942), ('Path 3', 0.7619047619047619)]
-#print(mergesort(l))
-=======
->>>>>>> b05f5fa26f82ebadd6b6763e2565d727567ce794
