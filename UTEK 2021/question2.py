@@ -8,10 +8,8 @@ sources, destination = jsonFunctions.extractinput("UTEK 2021/2.in")
 # print(sources[0])
 
 pathfinding.Dijkstra(extracted_json,sources[0])
-
+dict1 = extracted_json[0]
 print(dict1)
-print("##########################")
-print(dict2)
 # for source in sources[0]:
     # print(source)
     #TODO: Use Djikstra on source.
