@@ -8,7 +8,7 @@ list_paths = json.load(file_1b)["Paths"]
 lst_out = []
 
 for path in list_paths:
-    num_of_accessible_stations = fxn(path["Nodes"])
+    #num_of_accessible_stations = fxn(path["Nodes"])
     lst_out.append(tuple(path["PathName"], num_of_accessible_stations/len(path["Nodes"])))
 
 
