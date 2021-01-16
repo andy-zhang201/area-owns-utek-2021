@@ -30,15 +30,15 @@ def distance(x1,y1,x2,y2):
 #Graph should be list, containing nodes that are dicts
 #source is a string with name of starting station
 
-def smallestDistInQ(big_dict,name:str,source:str):
+def smallestDistInQ(Q,name:str,source:str):
     minDistance = float("inf")
-    if big_dict[name] == source:
+    if name == source:
         minNode = source
     else:
-        for dic in big_dict[name]["Neighbours"]:
-            if dic["Distance"] <= minDistance:
-                minDistance = dic["Distance"]
-                minNode = dic["Name"]
+        for neighbour in Q[name]["Neighbours"]:
+            if neighbour["Distance"] <= minDistance:
+                minDistance = neighbour["Distance"]
+                minNode = neighbour["Name"]
             else:
                 continue
     return minNode
