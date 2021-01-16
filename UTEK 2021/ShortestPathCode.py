@@ -13,8 +13,8 @@ def extractinput(inputFile:str,objectName:str):
     endPosList = []
     for line in fileRead.readlines():
         stations = line.split(",")
-        startPosList.append(station[0])
-        endPosList.append(station[1])
+        startPosList.append(stations[0])
+        endPosList.append(stations[1])
     return startPosList, endPosList
         
 
