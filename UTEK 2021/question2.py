@@ -1,14 +1,12 @@
 import jsonFunctions
 import json
 from collections import deque
-
+import pathfinding
 
 extracted_json = jsonFunctions.extractJson("UTEK 2021/2.json","Nodes")
-print(extracted_json)
 sources = jsonFunctions.extractinput("UTEK 2021/2.in")
-print("The sources: ", sources)
-print(type(extracted_json[0]))
-print(extracted_json[0]["Name"])
+print(sources[0][0])
+pathfinding.Dijkstra(extracted_json,sources[0][0])
 
 # for source in sources[0]:
     # print(source)
