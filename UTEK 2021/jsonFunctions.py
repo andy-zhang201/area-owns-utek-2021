@@ -3,6 +3,8 @@ import json
 def extractJson(jsonFile:str,objectName:str):
     '''
     extracts a json file and stores its objects in a list
+
+    Returns the list of objects
     '''
     jsonFile = open(jsonFile)
     objects = json.load(jsonFile)     #loads data into _objects_
@@ -13,7 +15,7 @@ def extractJson(jsonFile:str,objectName:str):
 
 def returnAccessibleStations(listOfStations):
     """
-    returns a list of station NAMES which are accessible
+    Returns a list of station NAMES which are accessible
     """
     accessibleStations=[]
     for station in listOfStations: 
