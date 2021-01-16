@@ -1,47 +1,15 @@
-import jsonFunctions
-import sortingFunctions
 import json
 from jsonFunctions import extractJson
 from sortingFunctions import mergesort
 
-<<<<<<< HEAD
-
-def output1b(output_lst):
-    f = open("1b.out", "w")
-    f.write(', '.join(output_lst))
-    f.close()
-
-def Most_accessible (File_Name:str, k):
-
-    list_paths = extractJson(File_Name, 'Paths')
-
-    lst_out = []
-
-    k = 3 
-
-    for path in list_paths:
-        accessible=0
-        for node in path["Nodes"]:
-            if node["Accessible"]:
-                accessible+=1
-
-        lst_out.append(tuple((path["PathName"], accessible/(len(path["Nodes"])-accessible))))
-
-    final_l = mergesort(lst_out)[-k:]
-    final_l.reverse()
-
-    output_lst = []
-
-    for x in final_l:
-        output_lst.append(x[0])
-
-    output1b(output_lst)
-
-def main():
-    Most_accessible('UTEK 2021/1b.json', 3)
-=======
 def find_k_most_accesible(inputFile:str,k:int):
-    list_paths = jsonFunctions.extractJson(inputFile,'Paths')
+    '''
+    Inputs:
+        inputFile: file name of the input, k: an integer for the number of results to be displayed
+    Returns
+        k most accessible paths as a list
+    '''
+    list_paths = extractJson(inputFile,'Paths')
 
     lst_out = []
 
@@ -50,23 +18,21 @@ def find_k_most_accesible(inputFile:str,k:int):
         for node in path["Nodes"]:
             if node["Accessible"]:
                 accessible+=1
+        lst_out.append(tuple((path["PathName"], accessible/(len(path["Nodes"])-accessible))))               # appends a tuple consisting of the name of the path and the accessibility ratio of that path
 
-        lst_out.append(tuple((path["PathName"], accessible/(len(path["Nodes"])-accessible))))
-    lst_out = sortingFunctions.mergesort(lst_out)
-    kMostAccessible = lst_out[-3:]
+    kMostAccessible = mergesort(lst_out)[-k:]
     kMostAccessible.reverse()
-    return kMostAccessible
+    return kMostAccessible                                                                                  # Returns a list of k paths that are in decreasing order of the accesibility ratio.
 
-def output1b(lst_out):
+def output1b(lst_out):                                                                                      # Writes the output to the .out file
     f = open("1b.out", "w")
     f.write(', '.join(lst_out))
     f.close()
 
 def main():
-    kMostAccessible = find_k_most_accesible('1b.json',3)
+    kMostAccessible = find_k_most_accesible('1b.json', 3)
     pathNames = [path[0] for path in kMostAccessible]
-    output1b (pathNames)
+    output1b(pathNames)
 
 main()
->>>>>>> b05f5fa26f82ebadd6b6763e2565d727567ce794
 

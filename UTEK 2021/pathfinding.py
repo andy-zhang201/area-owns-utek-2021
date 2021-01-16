@@ -30,18 +30,9 @@ def distance(x1,y1,x2,y2):
 #Graph should be list, containing nodes that are dicts
 #source is a string with name of starting station
 
-def smallestDistInQ(Q,name:str,source:str):
-    minDistance = float("inf")
-    if name == source:
-        minNode = source
-    else:
-        for neighbour in Q[name]["Neighbours"]:
-            if neighbour["Distance"] <= minDistance:
-                minDistance = neighbour["Distance"]
-                minNode = neighbour["Name"]
-            else:
-                continue
-    return minNode
+def smallestDistInQ(Q:dict,name:str,dist:dict):
+    
+    return min(dist, key=dist.get)
     
 def Dijkstra(Graph, source):
     #initialize
@@ -50,34 +41,45 @@ def Dijkstra(Graph, source):
     dist={}
     previous = {}
     Q = {}
+    route=[]
+    done = {}
+    
     for v in Graph:
-        # if (v["Name"]=="Finch"):
-        #     print(v)
-
-        dist[v["Name"]] = float("inf")	# initial distance from source to vertex v is set to infinite
+        dist[v["Name"]] = 100000	# initial distance from source to vertex v is set to infinite
         previous[v["Name"]] = None	# Previous node in optimal path from source
-        #source is a string with name of starting station
-        dist[source] = 0	# Distance from source to source
+        
+        
         # Q is a dictionary of nodes, key is name of node.
         Q[v["Name"]] = v
 
+    dist[source] = 0	# Distance from source to source
+
     #loop through
     while len(Q)>0:	# main loop
-        u = smallestDistInQ(Q,v["Name"],source)
-        print (u)
-        print (Q)
-        nodeDict = Q.pop(u)
         
-        for neighbour in nodeDict["Neighbours"]:
-            newDist = dist[u] + neighbour["Distance"]
-            if newDist < dist[v["Name"]]:
-                dist[v["Name"]] = newDist
-                previous[v["Name"]] = u
+        for i in dist:
+            print (dist[i])
+        u = smallestDistInQ(Q,v["Name"],dist)
 
-        # del(dist[u])
+        curNode = Q.pop(u)
+        curDist = dist[u]
+        
+        
+        for neighbour in curNode["Neighbours"]:
+            if not u in done:
+                newDist = curDist + neighbour["Distance"]
+                if newDist < dist[neighbour["Name"]]:
+                    dist[neighbour["Name"]] = newDist
+                    previous[neighbour["Name"]]=curNode
+        
+
+
+    return previous, dist
+
+
             
         
-    return previous
+    # return previous
 
         
             
