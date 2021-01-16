@@ -1,3 +1,4 @@
+
 def mergesort(arra):
     '''
     Uses the merge sort algorithm to sort a list
@@ -35,9 +36,9 @@ def mergesort(arra):
 
     return new_arra
 <<<<<<< HEAD
+
+
+#l = [('Path 1', 0.85), ('Path 2', 1.1764705882352942), ('Path 3', 0.7619047619047619)]
+#print(mergesort(l))
 =======
-
-
-l = [('Path 1', 0.85), ('Path 2', 1.1764705882352942), ('Path 3', 0.7619047619047619)]
-print(mergesort(l))
->>>>>>> 3365e19f58e9bc3786f6ce440448733659c6e3a4
+>>>>>>> b05f5fa26f82ebadd6b6763e2565d727567ce794
