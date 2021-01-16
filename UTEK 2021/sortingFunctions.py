@@ -29,5 +29,5 @@ def mergesort(arra):
     return new_arra
 
 
-l = [('Path 1', 0.85), ('Path 2', 1.1764705882352942), ('Path 3', 0.7619047619047619)]
-print(mergesort(l))
+#l = [('Path 1', 0.85), ('Path 2', 1.1764705882352942), ('Path 3', 0.7619047619047619)]
+#print(mergesort(l))
