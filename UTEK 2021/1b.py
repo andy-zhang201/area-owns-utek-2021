@@ -1,21 +1,33 @@
-
+import jsonFunctions
+import sortingFunctions
 import json
 
-file_1b = open('UTEK 2021/1b.json')
+def find_k_most_accesible(inputFile:str,k:int):
+    list_paths = jsonFunctions.extractJson(inputFile,'Paths')
 
-list_paths = json.load(file_1b)["Paths"]
+    lst_out = []
 
-lst_out = []
+    for path in list_paths:
+        accessible=0
+        for node in path["Nodes"]:
+            if node["Accessible"]:
+                accessible+=1
 
-for path in list_paths:
-    accessible=0
-    for node in path["Nodes"]:
-        if node["Accessible"]:
-            accessible+=1
+        lst_out.append(tuple((path["PathName"], accessible/(len(path["Nodes"])-accessible))))
+    lst_out = sortingFunctions.mergesort(lst_out)
+    kMostAccessible = lst_out[-3:]
+    kMostAccessible.reverse()
+    return kMostAccessible
 
-    lst_out.append(tuple((path["PathName"], accessible/(len(path["Nodes"])-accessible))))
+def output1b(lst_out):
+    f = open("1b.out", "w")
+    f.write(', '.join(lst_out))
+    f.close()
 
-print(lst_out)
+def main():
+    kMostAccessible = find_k_most_accesible('1b.json',3)
+    pathNames = [path[0] for path in kMostAccessible]
+    output1b (pathNames)
 
-
+main()
 
