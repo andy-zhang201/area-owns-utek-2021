@@ -25,6 +25,7 @@ def Dijkstra(Graph, source):
 	
     #loop through
     while Q is not empty:	# main loop
+    
         u := node in Q with smallest dist[ ]
         remove u from Q
         for each neighbor v of u:	# where v has not yet been removed from Q.
