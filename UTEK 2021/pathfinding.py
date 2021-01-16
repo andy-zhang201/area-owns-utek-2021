@@ -30,7 +30,7 @@ def distance(x1,y1,x2,y2):
 #Graph should be list, containing nodes that are dicts
 #source is a string with name of starting station
 
-def smallestDistInQ(big_dict,name:str,source:str):
+def smallestDistInQ(big_dict,name:str):
     minDistance = float("inf")
     if big_dict[name] == source:
         minNode = source
@@ -68,16 +68,16 @@ def Dijkstra(Graph, source):
         print (Q)
         nodeDict = Q.pop(u)
         
-        for neighbour in nodeDict["Neighbours"]:
-            newDist = dist[u] + neighbour["Distance"]
-            if newDist < dist[v["Name"]]:
-                dist[v["Name"]] = newDist
-                previous[v["Name"]] = u
+    #     for neighbour in nodeDict["Neighbours"]:
+    #         newDist = dist[u] + neighbour["Distance"]
+    #         if newDist < dist[v["Name"]]:
+    #             dist[v["Name"]] = newDist
+    #             previous[v["Name"]] = u
 
-        # del(dist[u])
+    #     # del(dist[u])
             
         
-    return previous
+    # return previous
 
         
             

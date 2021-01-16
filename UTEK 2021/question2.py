@@ -9,7 +9,14 @@ sources, destination = jsonFunctions.extractinput("UTEK 2021/2.in")
 
 pathfinding.Dijkstra(extracted_json,sources[0])
 dict1 = extracted_json[0]
-print(dict1)
+Q={}
+for v in extracted_json:
+    Q[v["Name"]] = v
+
+print(Q["Yonge"]["Neighbours"])
+
+minN = pathfinding.smallestDistInQ(Q,"Christie","Yonge")
+print(minN)
 # for source in sources[0]:
     # print(source)
     #TODO: Use Djikstra on source.
