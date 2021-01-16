@@ -1,7 +1,6 @@
 import json
 
-f = open('1a.json',r)
+f = open('UTEK 2021\\1a.json','r')
 
-stations = json.load(f)
+stations = json.load(f)     #loads data into _stations_
 
-print (stations)
