@@ -7,6 +7,7 @@ def bfs(graph,start):
     queue.push(start)
     while queue not empty:
         node=queue.pop()
+        # Nodes are a part of graph
         for each neighbour of node:
             if neighbour not visited:
                 push the neighbour onto the queue
