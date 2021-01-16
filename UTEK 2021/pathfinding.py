@@ -29,13 +29,23 @@ def distance(x1,y1,x2,y2):
 #Dijkstra function
 #Graph should be list, containing nodes that are dicts
 #source is a string with name of starting station
+
+def smallestDistInQ(que):
+    # Initialise dict
+    big_dict = {}
+
+    for dic in que:
+        big_dict.update(dic)
+    
+    return min(big_dict, key=big_dict.get)
+
 def Dijkstra(Graph, source):
     #initialize
     #vertex = station in the json
     # Dist is a dictionary. Keys are names of nodes in graph, value is the distance from source node to that node in the key.
     dist={}
     previous = {}
-    Q = []
+    Q = {}
     for v in Graph:
         # if (v["Name"]=="Finch"):
         #     print(v)
@@ -44,13 +54,28 @@ def Dijkstra(Graph, source):
         previous[v["Name"]] = None	# Previous node in optimal path from source
         #source is a string with name of starting station
         dist[source] = 0	# Distance from source to source
-        # Q is a list of nodes, same info as graph.
-        Q.append(v)
+        # Q is a dictionary of nodes, key is name of node.
+        Q[v["Name"]] = v
 
-    # #loop through
-    # while len(Q)>0:	# main loop
+    #loop through
+    while len(Q)>0:	# main loop
+        u = min(dist, key=dist.get)
 
-    #     u = node in Q with smallest dist[ ]
+        nodeDict = Q.pop(u)
+        
+        for neighbour in nodeDict["Neighbours"]:
+            newDist = dist[u] + neighbour["Distance"]
+            if newDist < dist[v["Name"]]:
+                dist[v["Name"]] = newDist
+                previous[v["Name"]] = u
+
+        # del(dist[u])
+            
+        
+    return previous
+
+        
+            
     #     remove u from Q
     #     for each neighbor v of u:	# where v has not yet been removed from Q.
     #         alt := dist[u] + dist_between(u, v)
@@ -58,3 +83,4 @@ def Dijkstra(Graph, source):
     #             dist[v] := alt
     #             previous[v] := u
 	# return previous[ ]
+
