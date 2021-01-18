@@ -3,8 +3,8 @@ import json
 from collections import deque
 import pathfinding
 
-extracted_json = jsonFunctions.extractJson("2.json","Nodes")
-sources, destination = jsonFunctions.extractinput("2.in")
+extracted_json = jsonFunctions.extractJson("UTEK 2021/2.json","Nodes")
+sources, destination = jsonFunctions.extractinput("UTEK 2021/2.in")
 
 previous, dist = pathfinding.Dijkstra(extracted_json,sources[0])
 
